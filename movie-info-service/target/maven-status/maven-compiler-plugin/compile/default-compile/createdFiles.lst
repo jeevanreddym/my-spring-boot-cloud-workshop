@@ -1,0 +1,3 @@
+com\my\spring\cloud\learning\movieinfoservice\MovieInfoServiceApplication.class
+com\my\spring\cloud\learning\movieinfoservice\model\Movie.class
+com\my\spring\cloud\learning\movieinfoservice\controller\MovieInfoController.class
