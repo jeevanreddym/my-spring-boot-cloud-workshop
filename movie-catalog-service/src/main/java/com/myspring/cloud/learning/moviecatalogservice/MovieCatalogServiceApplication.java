@@ -14,7 +14,6 @@ public class MovieCatalogServiceApplication {
         SpringApplication.run(MovieCatalogServiceApplication.class, args);
     }
 
-
     @Bean
     @LoadBalanced
     public RestTemplate restTemplate() {
