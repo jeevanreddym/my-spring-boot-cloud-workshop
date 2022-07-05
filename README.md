@@ -1,1 +1,1 @@
-# -spring-boot-cloud-workshop
+# spring-boot-cloud-workshop
