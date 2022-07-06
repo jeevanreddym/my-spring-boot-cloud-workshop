@@ -9,9 +9,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class CatalogItem {
-
     private String name;
     private String desc;
     private int rating;
-
 }
