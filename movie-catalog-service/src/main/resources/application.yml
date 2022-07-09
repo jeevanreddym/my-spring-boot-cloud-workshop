@@ -12,7 +12,7 @@ management:
     health:
       show-details: always
 
-# circuit breaker, retry, rate limiter entries.
+# circuit breaker, retry, rate-limiter entries.
 resilience4j:
   circuitbreaker:
     instances:
