@@ -1,0 +1,41 @@
+spring:
+  application:
+    name: My App
+  profiles:
+    active: dev
+  cloud:
+    config:
+      server:
+        git:
+          url:
+
+
+app:
+  name: My App
+  description: Welcome to ${spring.application.name}
+
+my:
+  greeting: Welcome to ${spring.application.name}
+  list:
+    values: one,two,three
+  dbValues: "{url: 'http://oracledb', username: 'foo', password: 'foo'}"
+
+
+
+db:
+  connection: "http://oracledb"
+  host: 127.0.0.1
+  port: 1200
+
+
+
+# actuator entries.
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: always
+
