@@ -1,0 +1,15 @@
+
+app:
+  name: My App Prod
+  description: Welcome to ${spring.application.name}
+
+my:
+  greeting: Welcome to ${app.name}
+  list:
+    values: one,two,three
+  dbValues: "{url: 'http://oracledb/prod', username: 'prod', password: '****'}"
+
+db:
+  connection: "http://oracledb/prod"
+  host: 127.0.0.1
+  port: 1200

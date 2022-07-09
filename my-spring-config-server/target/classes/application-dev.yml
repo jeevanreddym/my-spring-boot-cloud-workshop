@@ -1,4 +1,0 @@
-db:
-  connection: "dev-connection-string"
-  host: 127.0.0.1
-  port: 5000

@@ -1,0 +1,44 @@
+spring:
+  application:
+    name: movie-catalog-service
+server:
+  port: 8081
+
+# actuator entries.
+management:
+  health:
+    circuitbreakers:
+      enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: health
+  endpoint:
+    health:
+      show-details: always
+
+# circuit breaker, retry, rate-limiter entries.
+resilience4j:
+  circuitbreaker:
+    instances:
+      MOVIE_CATALOG_CB:
+        registerHealthIndicator: true
+        eventConsumerBufferSize: 10
+        failureRateThreshold: 50
+        minimumNumberOfCalls: 5
+        automaticTransitionFromOpenToHalfOpenEnabled: true
+        waitDurationInOpenState: 5s
+        permittedNumberOfCallsInHalfOpenState: 3
+        slidingWindowSize: 10
+        slidingWindowType: COUNT_BASED
+  retry:
+    instances:
+      MOVIE_CATALOG_CB:
+        max-retry-attempts: 5
+        waitDuration: 10s
+  rate-limiter:
+    instances:
+      MOVIE_CATALOG_CB:
+        limit-for-period: 10
+        limit-refresh-period: 10s
+        timeout-duration: 3s

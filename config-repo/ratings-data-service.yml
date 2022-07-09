@@ -1,0 +1,20 @@
+spring:
+  application:
+    name: ratings-data-service
+server:
+  port: 8082
+
+
+
+# actuator entries.
+management:
+  health:
+    circuitbreakers:
+      enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: health
+  endpoint:
+    health:
+      show-details: always

@@ -7,6 +7,7 @@ import com.myspring.cloud.learning.moviecatalogservice.model.Rating;
 import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
 import io.github.resilience4j.ratelimiter.annotation.RateLimiter;
 import io.github.resilience4j.retry.annotation.Retry;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.client.circuitbreaker.CircuitBreakerFactory;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpEntity;
@@ -23,13 +24,11 @@ import java.util.stream.Collectors;
 
 @RestController
 public class MovieCatalogController {
+    @Autowired
     private RestTemplate restTemplate;
-    private CircuitBreakerFactory cbFactory;
 
-    public MovieCatalogController(RestTemplate restTemplate, CircuitBreakerFactory cbFactory) {
-        this.restTemplate = restTemplate;
-        this.cbFactory = cbFactory;
-    }
+    @Autowired
+    private CircuitBreakerFactory cbFactory;
 
 
     @GetMapping("/catalog/{userId}")
@@ -44,8 +43,9 @@ public class MovieCatalogController {
     private List<Rating> getUserRatings(String userId) {
         ResponseEntity<List<Rating>> responseEntity =
                 restTemplate.exchange(
-                        //"http://localhost:8082/ratings/" + userId,
-                        "http://ratings-data-service/ratings/" + userId, // using eureka registry/discovery server.
+                        //"http://localhost:8082/ratings/"
+                        "http://ratings-data-service/ratings/"  // using eureka registry/discovery server.
+                                + userId,
                         HttpMethod.GET, HttpEntity.EMPTY, new ParameterizedTypeReference<List<Rating>>() {});
         List<Rating> ratings = responseEntity.getBody();
         return ratings;
@@ -53,8 +53,9 @@ public class MovieCatalogController {
 
     private CatalogItem getCatalogItem(Rating rating) {
         Movie movie = restTemplate.getForObject(
-                //"http://localhost:8083/movies/" + rating.getMovieId(),
-                "http://movie-info-service/movies/" + rating.getMovieId(), // using eureka registry/discovery server.
+                //"http://localhost:8083/movies/"
+                "http://movie-info-service/movies/"  // using eureka registry/discovery server.
+                        + rating.getMovieId(),
                 Movie.class);
         return new CatalogItem(movie.getName(), movie.getMovieId(), rating.getRating());
     }
@@ -64,5 +65,4 @@ public class MovieCatalogController {
                 new CatalogItem("Fallback", "Fallback", 0)
         );
     }
-
 }

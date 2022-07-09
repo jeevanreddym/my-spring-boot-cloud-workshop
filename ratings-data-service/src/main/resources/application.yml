@@ -1,0 +1,11 @@
+# spring cloud config server client.
+spring:
+  application:
+    name: ratings-data-service
+  profiles:
+    active: default
+  cloud:
+    config:
+      uri: http://localhost:8888
+  config:
+    import: optional:configserver:http://localhost:8888

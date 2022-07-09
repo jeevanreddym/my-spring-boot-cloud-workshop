@@ -1,0 +1,37 @@
+spring:
+  application:
+    name: movie-info-service
+server:
+  port: 8083
+
+
+# custom props.
+app:
+  name: My App
+  description: Welcome to ${spring.application.name}
+
+my:
+  greeting: Welcome to ${spring.application.name}
+  list:
+    values: one,two,three
+  dbValues: "{url: 'http://oracledb', username: 'foo', password: 'foo'}"
+
+db:
+  connection: "http://oracledb"
+  host: 127.0.0.1
+  port: 1200
+
+
+
+# actuator entries.
+management:
+  health:
+    circuitbreakers:
+      enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: health
+  endpoint:
+    health:
+      show-details: always
