@@ -6,8 +6,8 @@ spring:
   cloud:
     config:
       server:
-#        git:
-#          url: "https://github.com/jeevanreddym/my-springboot-cloud-workshop/tree/main/config-repo"
+#       git:
+#         url: "https://github.com/jeevanreddym/my-springboot-cloud-workshop/tree/main/config-repo"
         composite:
           - type: native
             search-locations: file:////C://Users//test//my-folder//Workspaces//config-repo # <--- local git repo.

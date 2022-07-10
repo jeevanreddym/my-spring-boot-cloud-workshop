@@ -7,7 +7,7 @@ my:
   greeting: Welcome to ${app.name}
   list:
     values: one,two,three
-  dbValues: "{url: 'http://oracledb/prod', username: 'prod', password: '****'}"
+  dbValues: "{url: 'http://oracledb/prod', username: 'prod', password: '{cipher}ABCD'}"
 
 db:
   connection: "http://oracledb/prod"
