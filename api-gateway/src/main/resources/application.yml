@@ -1,28 +1,40 @@
-#
-#spring:
-#  application:
-#    name: api-gateway
-#eureka:
-#  client:
-#    serviceUrl:
-#      defaultZone: http://localhost:8761/eureka
-#
-#logging.level.root=INFO
-#logging.level.org.springframework.cloud.gateway.route.RouteDefinitionLocator=INFO
-#logging.level.org.springframework.cloud.gateway=TRACE
-#
-#
-### Movie Catalog Service Route
-#spring.cloud.gateway.routes[0].id=movie-catalog-service
-#spring.cloud.gateway.routes[0].uri=lb://movie-catalog-service
-#spring.cloud.gateway.routes[0].predicates[0]=Path=**/api/movie-catalog/**
-#
-### Movie Info Service Route
-#spring.cloud.gateway.routes[1].id=movie-info-service
-#spring.cloud.gateway.routes[1].uri=lb://movie-info-service
-#spring.cloud.gateway.routes[1].predicates[0]=Path=**/api/movie-info/**
-#
-### Ratings Data Service Route
-#spring.cloud.gateway.routes[2].id=ratings-data-service
-#spring.cloud.gateway.routes[2].uri=lb://ratings-data-service
-#spring.cloud.gateway.routes[2].predicates[0]=Path=**/api/ratings-data/**
+server:
+  port: 9000
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka
+
+spring:
+  application:
+    name: api-gateway
+  cloud:
+    gateway:
+      routes:
+
+        # Movie Catalog Service Route
+        - id: movie-catalog-route
+          predicates:
+            - Path=/catalog/**
+          uri: lb://movie-catalog-service
+
+        # Movie Info Service Route
+        - id: movie-info-route
+          uri: lb://movie-info-service
+          predicates:
+            - Path=/movie-info-service/movies/**
+
+        # Ratings Data Service Route
+        - id: ratings-data-route
+          uri: lb://ratings-data-service
+          predicates:
+            - Path=/ratings-data-service/ratings/**
+
+        # Discovery Server Route
+        - id: discovery-server-route
+          uri: lb://localhost:8761
+          predicates:
+            - Path=/eureka/web
+          filters:
+            - SetPath=/

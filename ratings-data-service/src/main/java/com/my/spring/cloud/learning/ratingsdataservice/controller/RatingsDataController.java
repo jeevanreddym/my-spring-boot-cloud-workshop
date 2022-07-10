@@ -13,17 +13,15 @@ import java.util.List;
 @RestController
 public class RatingsDataController {
 
-
     @GetMapping("/ratings/{userId}")
     public List<Rating> getRatings(@PathVariable String userId) {
-
         List<Rating> ratings = Arrays.asList(
                 new Rating("111", 8),
                 new Rating("222", 10),
                 new Rating("333", 10),
                 new Rating("444", 9)
         );
-        return (ratings);
+        return ratings;
     }
 
     @GetMapping("/ratings/movie/{movieId}")
