@@ -1,0 +1,47 @@
+version: '1'
+
+
+
+services:
+
+  app:
+    container_name: my-springboot-cloud-workshop-image
+    build: ./
+    ports:
+      - 8080:8080
+    depends_on:
+      - api-gateway
+      - discovery-server
+      - spring-cloud-config-server
+      - movie-catalog-service
+      - movie-info-service
+      - ratings-data-service
+
+  # api gateway container image details.
+  api-gateway:
+    image: 'api-gateway-image'
+    ports:
+      - 8081:9001
+    environment:
+      - DB_ROOT_USERNAME=root
+      - DB_ROOT_PASSWORD=root
+
+  # Eureka container image details.
+  discovery-server:
+    image: 'discovery-server-image'
+
+  # Eureka container image details.
+  spring-cloud-config-server:
+    image: 'spring-cloud-config-server-image'
+
+  # Eureka container image details.
+  movie-catalog-service:
+    image: 'movie-catalog-service-image'
+
+  # Eureka container image details.
+  movie-info-service:
+    image: 'movie-info-service-image'
+
+  # Eureka container image details.
+  ratings-data-service:
+    image: 'ratings-data-service-image'

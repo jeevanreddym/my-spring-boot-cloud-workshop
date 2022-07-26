@@ -13,3 +13,10 @@ java -jar -Dspring.profiles.active=profilename XXX.jar
 mvn spring-boot:run -Dspring-boot.run.profiles=foo,bar
 
 ![img.png](img.png)
+
+
+
+# docker-compose is a CLI (command line interface) that's installed along with docker desktop
+
+docker-compose up
+
