@@ -20,3 +20,42 @@ mvn spring-boot:run -Dspring-boot.run.profiles=foo,bar
 
 docker-compose up
 
+
+
+# http://localhost:8082/ratings/8888
+ratings-data-service
+![img_2.png](img_2.png)
+
+
+# http://localhost:8083/movies/111
+movie-info-service
+![img_3.png](img_3.png)
+![img_4.png](img_4.png)
+
+
+# http://localhost:8081/catalog/8888
+movie-catalog-service
+![img_1.png](img_1.png)
+# http://localhost:9000/MOVIE-CATALOG-SERVICE/catalog/8888
+![img_6.png](img_6.png)
+
+
+# http://localhost:8761/
+Eureka Registry Discovery server
+![img_5.png](img_5.png)
+
+
+# http://localhost:8888/actuator/configprops
+Config Server: actuator
+![img_7.png](img_7.png)
+
+
+# profiles from config server:
+![img_8.png](img_8.png)
+![img_9.png](img_9.png)
+
+
+
+
+
+

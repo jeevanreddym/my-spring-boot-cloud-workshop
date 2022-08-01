@@ -11,25 +11,29 @@ spring:
     name: api-gateway
   cloud:
     gateway:
+      discovery:
+        locator:
+          enabled: true
+
       routes:
 
-        # Movie Catalog Service Route
-        - id: movie-catalog-route
-          predicates:
-            - Path=/catalog/**
-          uri: lb://movie-catalog-service
-
-        # Movie Info Service Route
-        - id: movie-info-route
-          uri: lb://movie-info-service
-          predicates:
-            - Path=/movie-info-service/movies/**
-
-        # Ratings Data Service Route
-        - id: ratings-data-route
-          uri: lb://ratings-data-service
-          predicates:
-            - Path=/ratings-data-service/ratings/**
+#        # Movie Catalog Service Route
+#        - id: movie-catalog-route
+#          predicates:
+#            - Path=/movie-catalog-route/**
+#          uri: lb://movie-catalog-service
+#
+#        # Movie Info Service Route
+#        - id: movie-info-route
+#          uri: lb://movie-info-service
+#          predicates:
+#            - Path=/movie-info-service/movies/**
+#
+#        # Ratings Data Service Route
+#        - id: ratings-data-route
+#          uri: lb://ratings-data-service
+#          predicates:
+#            - Path=/ratings-data-service/ratings/**
 
         # Discovery Server Route
         - id: discovery-server-route
