@@ -11,6 +11,16 @@ spring:
     import: optional:configserver:http://localhost:8888
 
 
+# spring actuator.
+management:
+  endpoints:
+    web:
+      expose: "*"
+      exposure:
+        include: "*"
+
+
+
 
 
 # custom props.
@@ -24,7 +34,7 @@ my:
     values: one,two,three
   dbValues: "{url: 'http://oracledb', username: 'foo', password: 'foo'}"
 
-db:
+my-database:
   connection: "http://oracledb"
   host: 127.0.0.1
   port: 1200

@@ -1,37 +1,72 @@
 package com.my.spring.cloud.learning.movieinfoservice.controller;
 
 
+import com.my.spring.cloud.learning.movieinfoservice.exception.MovieNotFoundException;
 import com.my.spring.cloud.learning.movieinfoservice.model.Movie;
+import com.my.spring.cloud.learning.movieinfoservice.model.MovieRequest;
+import com.my.spring.cloud.learning.movieinfoservice.resource.MovieDAO;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.MessageSource;
+import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.core.env.Environment;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import java.util.Arrays;
+import javax.validation.Valid;
+import java.net.URI;
+import java.time.LocalDate;
 import java.util.List;
+import java.util.function.Predicate;
 
 @RestController
 public class MovieInfoController {
-
+    @Autowired
+    private MovieDAO movieDAO;
     @Autowired
     private Environment env;
+    @Autowired
+    private MessageSource messageSource;
+
 
     @GetMapping("/movies/{movieId}")
     public Movie getMovieInfo(@PathVariable String movieId) {
-
         String port = env.getProperty("local.server.port");
+        return movieDAO.findById(movieId);
+    }
+
+    @GetMapping("/movie-detail/{movieId}")
+    public Movie getMovieDetail(@PathVariable String movieId) {
+        return movieDAO.findOne(movieId);
+    }
+
+    @GetMapping("/movies")
+    public List<Movie> getAllMovies() {
+        return movieDAO.findAll();
+    }
+
+    @PostMapping("/movie")
+    public ResponseEntity<Movie> createMovie(@Valid @RequestBody MovieRequest movieRequest) {
+
+        Movie savedMovie = movieDAO.save(new Movie(movieRequest.getName(), movieRequest.getName()));
+
+        URI location = ServletUriComponentsBuilder.fromCurrentRequest()
+                .path("/{movieId}")
+                .buildAndExpand(savedMovie.getMovieId())
+                .toUri();
+
+        return ResponseEntity.created(location).build();
+    }
+
+    @DeleteMapping("/movie/{movieId}")
+    public void deleteMovie(@PathVariable String movieId) {
+        movieDAO.deleteById(movieId);
+    }
 
 
-        // Movie DB.
-        List<Movie> movieDetails = Arrays.asList(
-                new Movie("111", "Transformers"),
-                new Movie("222", "Titanic"),
-                new Movie("333", "Avatar"),
-                new Movie("444", "RRR")
-        );
-
-        return movieDetails.stream().filter(movie -> movie.getMovieId().equals(movieId)).findFirst().orElse(null);
+    @GetMapping("/message")
+    public String internationalizedMessage() {
+        return messageSource.getMessage("good.morning.message", null, "Default Msg", LocaleContextHolder.getLocale());
     }
 
 }

@@ -24,4 +24,11 @@ public class RatingsDataService {
         Optional<Rating> rating = ratingsRepo.findByMovieId(movieId);
         return rating.orElse(null);
     }
+
+
+
+    public List<Rating> getRatings() {
+        List<Rating> ratings = ratingsRepo.findAll();
+        return ratings;
+    }
 }

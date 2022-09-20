@@ -17,6 +17,11 @@ public class RatingsDataController {
     @Autowired
     private RatingsDataService ratingsDataService;
 
+    @GetMapping("/ratings")
+    public List<Rating> getRatings() {
+        return ratingsDataService.getRatings();
+    }
+
     @GetMapping("/ratings/{userId}")
     public List<Rating> getRatings(@PathVariable String userId) {
         return ratingsDataService.getRatings(userId);
@@ -25,4 +30,5 @@ public class RatingsDataController {
     public Rating getRating(@PathVariable String movieId) {
         return ratingsDataService.getRating(movieId);
     }
+
 }

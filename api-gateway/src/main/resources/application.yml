@@ -14,8 +14,9 @@ spring:
       discovery:
         locator:
           enabled: true
+          lower-case-service-id: true
 
-      routes:
+#      routes:
 
 #        # Movie Catalog Service Route
 #        - id: movie-catalog-route
@@ -35,10 +36,10 @@ spring:
 #          predicates:
 #            - Path=/ratings-data-service/ratings/**
 
-        # Discovery Server Route
-        - id: discovery-server-route
-          uri: lb://localhost:8761
-          predicates:
-            - Path=/eureka/web
-          filters:
-            - SetPath=/
+#        # Discovery Server Route
+#        - id: discovery-server-route
+#          uri: lb://localhost:8761
+#          predicates:
+#            - Path=/eureka/web
+#          filters:
+#            - SetPath=/

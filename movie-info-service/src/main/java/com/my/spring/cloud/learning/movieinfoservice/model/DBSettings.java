@@ -9,9 +9,8 @@ import org.springframework.context.annotation.Configuration;
 
 
 @Configuration
-@ConfigurationProperties("db")
+@ConfigurationProperties("my-database")
 @Data
-@ToString
 public class DBSettings {
     private String connection;
     private String host;

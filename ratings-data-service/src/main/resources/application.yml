@@ -13,9 +13,9 @@ spring:
 
 # JPA & H2.
   jpa:
-    generate-ddl: true
+    generate-ddl: false
     hibernate:
-      ddl-auto: create
+      ddl-auto: none
     database: default
     show-sql: true
     defer-datasource-initialization: true
