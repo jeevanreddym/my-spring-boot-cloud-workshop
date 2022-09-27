@@ -7,6 +7,6 @@ spring:
     config:
       server:
        git:
-  #       uri: https://github.com/jeevanreddym/my-config-server-git-repo
-          uri: "file:////C://Users//test//my-folder//Workspaces//my-config-server-git-repo"       # <--- local git repo.
+        uri: https://github.com/jeevanreddym/my-config-server-git-repo
+        #uri: "file:////C://Users//test//my-folder//Workspaces//my-config-server-git-repo"       # <--- local git repo.
 

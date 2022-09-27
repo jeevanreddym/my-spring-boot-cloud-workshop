@@ -50,3 +50,6 @@ spring:
 #        limit-for-period: 10
 #        limit-refresh-period: 10s
 #        timeout-duration: 3s
+
+server:
+  port: 8083

@@ -8,6 +8,7 @@ import org.springframework.core.env.Environment;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -34,8 +35,14 @@ public class GreetingsController {
     private Environment env;
 
     @GetMapping("/greeting")
-    public String greeting() {
-        return greetingMsg + staticMsg + msgs + dbValues + dbSettings;
+    public Map<String, Object> greeting() {
+        return new HashMap<>() {{
+            put("Greeting", greetingMsg);
+            put("Static Msg", staticMsg);
+            put("msgs", msgs);
+            put("dbValues", dbValues);
+            put("dbSettings", dbSettings);
+        }};
     }
 
     @GetMapping("/env-details")

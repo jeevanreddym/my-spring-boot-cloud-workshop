@@ -6,7 +6,9 @@ spring:
     active: prod
   cloud:
     config:
-      uri: http://localhost:8888
+      profile: prod
+      name: movie-info-service
+  #      uri: http://localhost:8888
   config:
     import: optional:configserver:http://localhost:8888
 
@@ -38,3 +40,6 @@ my-database:
   connection: "http://oracledb"
   host: 127.0.0.1
   port: 1200
+
+server:
+  port: 8081
