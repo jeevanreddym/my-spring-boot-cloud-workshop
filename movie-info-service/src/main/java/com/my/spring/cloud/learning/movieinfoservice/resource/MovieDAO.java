@@ -1,7 +1,7 @@
 package com.my.spring.cloud.learning.movieinfoservice.resource;
 
+import com.my.spring.cloud.learning.movieinfoclient.model.Movie;
 import com.my.spring.cloud.learning.movieinfoservice.exception.MovieNotFoundException;
-import com.my.spring.cloud.learning.movieinfoservice.model.Movie;
 import org.springframework.stereotype.Service;
 
 import java.util.Arrays;

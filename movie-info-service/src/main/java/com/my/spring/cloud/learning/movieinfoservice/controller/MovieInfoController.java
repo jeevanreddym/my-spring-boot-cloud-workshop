@@ -1,8 +1,8 @@
 package com.my.spring.cloud.learning.movieinfoservice.controller;
 
 
-import com.my.spring.cloud.learning.movieinfoservice.exception.MovieNotFoundException;
-import com.my.spring.cloud.learning.movieinfoservice.model.Movie;
+
+import com.my.spring.cloud.learning.movieinfoclient.model.Movie;
 import com.my.spring.cloud.learning.movieinfoservice.model.MovieRequest;
 import com.my.spring.cloud.learning.movieinfoservice.resource.MovieDAO;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,9 +15,7 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import javax.validation.Valid;
 import java.net.URI;
-import java.time.LocalDate;
 import java.util.List;
-import java.util.function.Predicate;
 
 @RestController
 public class MovieInfoController {

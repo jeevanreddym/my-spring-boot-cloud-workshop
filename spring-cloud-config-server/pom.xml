@@ -10,7 +10,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 
-	<groupId>com.myspring.cloud.learning</groupId>
+	<groupId>com.my.spring.cloud.learning</groupId>
 	<artifactId>my-spring-config-server</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>my-spring-config-server</name>
