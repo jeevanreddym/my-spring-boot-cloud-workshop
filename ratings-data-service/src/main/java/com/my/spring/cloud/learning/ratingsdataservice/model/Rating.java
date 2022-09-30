@@ -14,7 +14,6 @@ import javax.persistence.Id;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Rating {
-
     @Id
     private Integer ratingId;
     private String movieId;
