@@ -1,32 +1,36 @@
 
-ratings-data-service:
+# ratings-data-service:
 ----------------------
 http://localhost:8082/ratings/8888
 http://localhost:9000/ratings-data-service/ratings/8888
+# h2 console:
+------------
+http://localhost:8082/h2-console/
 
-movie-info-service:
+
+# movie-info-service:
 ----------------------
-
+http://localhost:8083/movies/222
 http://localhost:9000/movie-info-service/movies/222
 
-movie-catalog-service:
+# movie-catalog-service:
 ------------------------
-http://localhost:8083/catalog/8888#
+http://localhost:8081/catalog/8888
+http://localhost:8083/catalog-feign/8888
 http://localhost:9000/movie-catalog-service/catalog/8888
 
 
-Eureka Registry Discovery server:
+# Eureka Registry Discovery server:
 ----------------------------------
 
-spring-cloud-config-server:
+# spring-cloud-config-server:
 -----------------------------
 http://localhost:8888/movie-info-service/dev
 
 
-api-gateway:
+# api-gateway:
 -------------
 
 
 
 
-http://localhost:8081/catalog/8888#

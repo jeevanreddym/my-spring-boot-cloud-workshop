@@ -16,10 +16,10 @@ public class MovieDAO {
 
     static {
         movieDetails = Arrays.asList(
-            new Movie("111", "Transformers"),
-            new Movie("222", "Titanic"),
-            new Movie("333", "Avatar"),
-            new Movie("444", "RRR")
+            new Movie("111", "Transformers", ""),
+            new Movie("222", "Titanic", ""),
+            new Movie("333", "Avatar", ""),
+            new Movie("444", "RRR", "")
         );
     }
 

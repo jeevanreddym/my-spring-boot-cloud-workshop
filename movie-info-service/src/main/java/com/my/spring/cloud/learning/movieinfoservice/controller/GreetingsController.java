@@ -36,7 +36,7 @@ public class GreetingsController {
 
     @GetMapping("/greeting")
     public Map<String, Object> greeting() {
-        return new HashMap<>() {{
+        return new HashMap<String, Object>() {{
             put("Greeting", greetingMsg);
             put("Static Msg", staticMsg);
             put("msgs", msgs);

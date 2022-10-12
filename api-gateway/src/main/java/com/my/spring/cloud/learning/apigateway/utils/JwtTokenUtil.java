@@ -4,7 +4,7 @@ package com.my.spring.cloud.learning.apigateway.utils;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
-import org.springframework.security.core.userdetails.UserDetails;
+//import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
 
 import java.util.Date;
@@ -50,13 +50,13 @@ public class JwtTokenUtil {
         return false;
     }
 
-    public String generateToken(UserDetails userDetails) {
-        Map<String, Object> claims = new HashMap<>();
-        claims.put("Role", "Admin");
-        claims.put("Department", "Product development");
-
-        return doGenerateToken(claims, userDetails.getUsername());
-    }
+//    public String generateToken(UserDetails userDetails) {
+//        Map<String, Object> claims = new HashMap<>();
+//        claims.put("Role", "Admin");
+//        claims.put("Department", "Product development");
+//
+//        return doGenerateToken(claims, userDetails.getUsername());
+//    }
 
     private String doGenerateToken(Map<String, Object> claims, String subject) {
         return Jwts.builder()

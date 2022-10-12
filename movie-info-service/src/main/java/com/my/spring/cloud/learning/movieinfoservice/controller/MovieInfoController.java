@@ -30,7 +30,9 @@ public class MovieInfoController {
     @GetMapping("/movies/{movieId}")
     public Movie getMovieInfo(@PathVariable String movieId) {
         String port = env.getProperty("local.server.port");
-        return movieDAO.findById(movieId);
+        Movie movieInDB = movieDAO.findById(movieId);
+        movieInDB.setPort(port);
+        return movieInDB;
     }
 
     @GetMapping("/movie-detail/{movieId}")
@@ -46,7 +48,7 @@ public class MovieInfoController {
     @PostMapping("/movie")
     public ResponseEntity<Movie> createMovie(@Valid @RequestBody MovieRequest movieRequest) {
 
-        Movie savedMovie = movieDAO.save(new Movie(movieRequest.getName(), movieRequest.getName()));
+        Movie savedMovie = movieDAO.save(new Movie(movieRequest.getName(), movieRequest.getName(), ""));
 
         URI location = ServletUriComponentsBuilder.fromCurrentRequest()
                 .path("/{movieId}")

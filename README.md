@@ -26,6 +26,8 @@ docker-compose up
 ratings-data-service
 ![img_2.png](/z-readme-imgs/img_2.png)
 ![img_11.png](/z-readme-imgs/img_11.png)
+# http://localhost:8082/h2-console/
+![img.png](z-readme-imgs/img_12.png)
 
 
 # http://localhost:8083/movies/111

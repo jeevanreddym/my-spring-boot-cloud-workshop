@@ -13,8 +13,11 @@ spring:
     gateway:
       discovery:
         locator:
-          enabled: true
-          lower-case-service-id: true
+          enabled: true   # to call other microservices from api-gateway using the module name.
+          lower-case-service-id: true   # so modules can be typed in lower case.
+#  config:
+#    import: optional:configserver:http://localhost:8888
+
 
 #      routes:
 

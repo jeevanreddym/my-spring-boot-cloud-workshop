@@ -15,6 +15,7 @@ public class RouterConfig {
 
     @Bean
     public RouteLocator gatewayRoutes(RouteLocatorBuilder builder) {
+
         return builder.routes()
                 .route("movie-catalog-service", r -> r
                         .path("/catalog/**")
