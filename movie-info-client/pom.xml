@@ -74,12 +74,17 @@
 
     <repositories>
         <repository>
+            <id>local-repo</id>
+            <name>My local repo</name>
+            <url>file://C:/User/test/.m2/repository</url>
+        </repository>
+        <repository>
             <id>spring-milestones</id>
             <name>Spring Milestones</name>
             <url>https://repo.spring.io/milestone</url>
         </repository>
     </repositories>
 
-    <packaging>pom</packaging>
+    <packaging>jar</packaging>
 
 </project>

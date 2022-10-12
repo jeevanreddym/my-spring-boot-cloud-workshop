@@ -11,10 +11,10 @@
 	</parent>
 
 	<groupId>com.my.spring.cloud.learning</groupId>
-	<artifactId>my-spring-config-server</artifactId>
+	<artifactId>spring-cloud-config-server</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>my-spring-config-server</name>
-	<description>my-spring-config-server</description>
+	<name>spring-cloud-config-server</name>
+	<description>spring-cloud-config-server</description>
 
 	<properties>
 		<java.version>11</java.version>

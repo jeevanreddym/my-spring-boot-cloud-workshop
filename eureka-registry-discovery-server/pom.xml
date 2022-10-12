@@ -11,10 +11,10 @@
     </parent>
 
     <groupId>com.my.spring.cloud.learning</groupId>
-    <artifactId>my-eureka-registry-discovery-server</artifactId>
+    <artifactId>eureka-registry-discovery-server</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>my-eureka-registry-discovery-server</name>
-    <description>my-eureka-registry-discovery-server</description>
+    <name>eureka-registry-discovery-server</name>
+    <description>eureka-registry-discovery-server</description>
 
     <properties>
         <java.version>11</java.version>
