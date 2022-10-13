@@ -2,13 +2,10 @@ package com.my.spring.cloud.learning.moviecatalogservice;
 
 //import com.my.spring.cloud.learning.movieinfoclient.client.MovieInfoProxy;
 //import com.my.spring.cloud.learning.ratingsdataclient.client.RatingsDataProxy;
-import com.my.spring.cloud.learning.movieinfoclient.client.MovieInfoProxy;
-import com.my.spring.cloud.learning.ratingsdataclient.client.RatingsDataProxy;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
-//import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.context.annotation.Bean;
 import org.springframework.http.client.HttpComponentsClientHttpRequestFactory;
@@ -22,8 +19,8 @@ import org.springframework.web.client.RestTemplate;
 //        "com.my.spring.cloud.learning.movieinfoclient.client",
 //        "com.my.spring.cloud.learning.ratingsdataclient.client"
 //})
-//@EnableFeignClients(basePackages = "com.my.spring.cloud.learning")
-@EnableFeignClients(basePackageClasses = {RatingsDataProxy.class, MovieInfoProxy.class})
+@EnableFeignClients(basePackages = "com.my.spring.cloud.learning")
+//@EnableFeignClients(basePackageClasses = {RatingsDataProxy.class, MovieInfoProxy.class})
 //@EnableFeignClients(clients = {RatingsDataProxy.class, MovieInfoProxy.class})
 public class MovieCatalogServiceApplication {
 

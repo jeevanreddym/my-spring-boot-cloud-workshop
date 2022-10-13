@@ -7,9 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 //@EnableWebFluxSecurity
 @SpringBootApplication
 public class ApiGatewayApplication {
-
     public static void main(String[] args) {
         SpringApplication.run(ApiGatewayApplication.class, args);
     }
-
 }

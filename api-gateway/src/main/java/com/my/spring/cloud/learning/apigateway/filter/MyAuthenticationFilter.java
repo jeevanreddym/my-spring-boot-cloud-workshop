@@ -19,9 +19,8 @@ import java.util.function.Predicate;
 @RefreshScope
 @Component
 public class MyAuthenticationFilter implements GatewayFilter {
-
     @Autowired
-    private RouterValidator routerValidator;//custom route validator
+    private MyRouterValidator routerValidator; //custom route validator
     @Autowired
     private JwtTokenUtil jwtUtil;
 
@@ -68,18 +67,15 @@ public class MyAuthenticationFilter implements GatewayFilter {
 
 
     @Component
-    public class RouterValidator {
-
+    public class MyRouterValidator {
         public final List<String> openApiEndpoints= List.of(
                 "/auth/register",
                 "/auth/login"
         );
-
         public Predicate<ServerHttpRequest> isSecured =
                 request -> openApiEndpoints
                         .stream()
                         .noneMatch(uri -> request.getURI().getPath().contains(uri));
-
     }
 
 }
